@@ -1061,7 +1061,7 @@ GameObject:
   - component: {fileID: 730661216}
   - component: {fileID: 730661215}
   - component: {fileID: 730661214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8660,33 +8660,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 124795621}
   m_VersionIndex: 7673
   m_IsSelectable: 1
-  m_SelectedFaces: 080000003100000032000000
-  m_SelectedEdges:
-  - a: 32
-    b: 33
-  - a: 34
-    b: 32
-  - a: 33
-    b: 35
-  - a: 35
-    b: 34
-  - a: 199
-    b: 196
-  - a: 196
-    b: 197
-  - a: 197
-    b: 198
-  - a: 198
-    b: 199
-  - a: 202
-    b: 203
-  - a: 203
-    b: 200
-  - a: 200
-    b: 201
-  - a: 201
-    b: 202
-  m_SelectedVertices: 20000000210000002200000023000000c5000000c7000000c4000000c6000000c8000000ca000000cb000000c9000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!4 &903990778
 Transform:
   m_ObjectHideFlags: 0
