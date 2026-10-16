@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     public Transform cameraTransform;
+    public Animator animator;
 
     //Private Variables
     CharacterController _controller;
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
         HandleGroundCheck();
         HandleMovement();
         HandleJump();
+        UpdateAnimator();
         ApplyGravity();
     }
 
@@ -122,6 +124,15 @@ public class PlayerController : MonoBehaviour
     {
         _velocity.y += gravity * Time.deltaTime;
         _controller.Move(new Vector3(0f,_velocity.y, 0f)  * Time.deltaTime);
+    }
+
+    void UpdateAnimator()
+    {
+        if (animator == null) return;
+
+        float inputMagnitude = _moveInput.magnitude;
+        animator.SetFloat("Speed", inputMagnitude);
+        animator.SetBool("IsJumping", !_isGrounded);
     }
 
     private void OnDrawGizmos()
