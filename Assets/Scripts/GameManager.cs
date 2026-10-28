@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -31,7 +33,11 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        UpdateUI();
+        if(pickupCountText != null)
+        {
+            UpdateUI();
+        }
+        
         if (winPanel != null)
         {
             winPanel.SetActive(false);
@@ -72,5 +78,20 @@ public class GameManager : MonoBehaviour
         {
             pickupCountText.text = $"Items: {collectedCount}/{totalPickups}";
         }
+    }
+
+    public void RestartGame()
+    {
+        StartCoroutine(Restart());
+    }
+
+    IEnumerator Restart()
+    {
+        yield return new WaitForSeconds(3.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        yield return new WaitForSeconds(0.25f);
+        pickupCountText = GameObject.Find("Item Display").GetComponent<TMP_Text>();
+        winPanel = GameObject.Find("WinPanel");
+        UpdateUI();
     }
 }
